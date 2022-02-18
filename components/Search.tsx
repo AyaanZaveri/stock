@@ -2,14 +2,18 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 
 interface AutoComplete {
-  symbol: string
-  name: string
+  ResultSet: {
+    Result: {
+      symbol: string
+      name: string
+    }[]
+  }
 }
 
 interface SearchProps {
   searchTerm: string
   setSearchTerm: (searchTerm: string) => void
-  autoCompleteData: AutoComplete[] | undefined
+  autoCompleteData: AutoComplete | undefined
   setAutoCompleteData?: (autoCompleteData: any) => void
 }
 
@@ -34,11 +38,13 @@ const Search = ({
     autoComplete()
   }
 
-  // useEffect(() => {
-  //   autoCompleteData?.map((data) => console.log(data))
-  // }, [searchTerm])
+  useEffect(() => {
+    autoCompleteData?.ResultSet.Result.map((data: any) => console.log(data))
+  }, [searchTerm])
 
-  console.log(autoCompleteData)
+  useEffect(() => {
+    console.log(autoCompleteData)
+  }, [searchTerm])
 
   return (
     <div className="mt-3 w-3/12">
