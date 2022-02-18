@@ -23,7 +23,6 @@ const Search = ({
   autoCompleteData,
   setAutoCompleteData,
 }: SearchProps) => {
-
   const autoComplete = () => {
     axios
       .get(
@@ -38,7 +37,7 @@ const Search = ({
     setSearchTerm(e.target.value)
   }
 
-  const getAutoCompletePrices = (ticker:string) => {
+  const getAutoCompletePrices = (ticker: string) => {
     axios
       .get(
         `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=price`
@@ -59,7 +58,7 @@ const Search = ({
     : []
 
   return (
-    <div className="mt-3 w-3/12">
+    <div className="mt-3 w-9/12 md:w-3/12">
       <input
         placeholder="Search..."
         type="text"
