@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
+
+interface AutoComplete {
+  symbol: string
+  name: string
+}
 
 interface SearchProps {
   searchTerm: string
   setSearchTerm: (searchTerm: string) => void
+  autoCompleteData: AutoComplete[] | undefined
+  setAutoCompleteData?: (autoCompleteData: any) => void
 }
 
-const Search = ({ searchTerm, setSearchTerm }: SearchProps) => {
+const Search = ({
+  searchTerm,
+  setSearchTerm,
+  autoCompleteData,
+  setAutoCompleteData,
+}: SearchProps) => {
   const autoComplete = () => {
     axios
       .get(
         `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v7/finance/autocomplete?region=US&lang=en&query=${searchTerm}`
       )
       .then((res) => {
-        console.log(res.data)
+        setAutoCompleteData ? setAutoCompleteData(res.data) : null
       })
   }
 
@@ -22,7 +34,24 @@ const Search = ({ searchTerm, setSearchTerm }: SearchProps) => {
     autoComplete()
   }
 
-  return <div><input type="text" value={searchTerm} onChange={handleChange} /></div>
+  // useEffect(() => {
+  //   autoCompleteData?.map((data) => console.log(data))
+  // }, [searchTerm])
+
+  console.log(autoCompleteData)
+
+  return (
+    <div className="mt-3 w-3/12">
+      <input
+        placeholder="Search..."
+        type="text"
+        value={searchTerm}
+        onChange={handleChange}
+        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
+      />
+      {}
+    </div>
+  )
 }
 
 export default Search
