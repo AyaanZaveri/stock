@@ -55,7 +55,13 @@ const Search = ({
         onChange={handleChange}
         className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
       />
-      {}
+      <div className="mt-3 grid grid-flow-row gap-3">
+        {searchTerm && autoCompleteData
+          ? autoCompleteData?.ResultSet.Result.map((data: any) => (
+              <div className="rounded border p-2">{data.name}</div>
+            ))
+          : null}
+      </div>
     </div>
   )
 }
