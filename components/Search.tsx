@@ -35,16 +35,19 @@ const Search = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)
-    autoComplete()
   }
 
   useEffect(() => {
-    autoCompleteData?.ResultSet.Result.map((data: any) => console.log(data))
+    autoComplete()
   }, [searchTerm])
 
   useEffect(() => {
     console.log(autoCompleteData)
   }, [searchTerm])
+
+  const slicedAutoCompleteData = autoCompleteData
+    ? autoCompleteData.ResultSet.Result.slice(0, 5)
+    : []
 
   return (
     <div className="mt-3 w-3/12">
@@ -53,12 +56,19 @@ const Search = ({
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
+        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
       />
-      <div className="mt-3 grid grid-flow-row gap-3">
+      <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
         {searchTerm && autoCompleteData
-          ? autoCompleteData?.ResultSet.Result.map((data: any) => (
-              <div className="rounded border p-2">{data.name}</div>
+          ? slicedAutoCompleteData.map((data: any) => (
+              <div className="grid grid-flow-col">
+                <span className="px-3 py-2.5 font-semibold text-slate-700">
+                  {data.name}{' '}
+                  <span className="ml-1 h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 ring-1 ring-slate-300 transition-all hover:bg-slate-50">
+                    {data.symbol}
+                  </span>
+                </span>
+              </div>
             ))
           : null}
       </div>
