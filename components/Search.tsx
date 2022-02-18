@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 interface AutoComplete {
@@ -23,6 +23,7 @@ const Search = ({
   autoCompleteData,
   setAutoCompleteData,
 }: SearchProps) => {
+
   const autoComplete = () => {
     axios
       .get(
@@ -37,12 +38,20 @@ const Search = ({
     setSearchTerm(e.target.value)
   }
 
-  useEffect(() => {
-    autoComplete()
-  }, [searchTerm])
+  const getAutoCompletePrices = (ticker:string) => {
+    axios
+      .get(
+        `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=price`
+      )
+      .then((res) => {
+        return res.data
+      })
+  }
+
+  console.log(getAutoCompletePrices('AAPL'))
 
   useEffect(() => {
-    console.log(autoCompleteData)
+    autoComplete()
   }, [searchTerm])
 
   const slicedAutoCompleteData = autoCompleteData
