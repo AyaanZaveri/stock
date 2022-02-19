@@ -68,15 +68,15 @@ const TickerSummary = (priceData: any) => {
         <div className="border-b p-3">
           Market State:{' '}
           {
-            (priceData.marketState = 'CLOSED' ? (
-              <span className="font-bold text-red-500">
-                {priceData.marketState}
-              </span>
-            ) : (
-              <span className="font-bold text-emerald-500">
-                {priceData.marketState}
-              </span>
-            ))
+            <span
+              className={`font-bold ${
+                priceData.marketState == 'CLOSED'
+                  ? 'text-red-500'
+                  : 'text-emerald-500'
+              }`}
+            >
+              {priceData.marketState}
+            </span>
           }
         </div>
       </div>
