@@ -14,7 +14,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
   console.log(priceData)
 
   return (
-    <div>
+    <div className='bg-gradient-to-r from-slate-50 to-blue-50'>
       <Nav />
       <div className="flex flex-col items-start">
         <div className="mx-12 my-28 flex flex-col">

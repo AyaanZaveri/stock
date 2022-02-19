@@ -24,7 +24,7 @@ const TickerSummary = (priceData: any) => {
   priceData = priceData.priceData
   return (
     <div>
-      <div className="mt-5 rounded-lg border text-slate-700">
+      <div className="mt-5 rounded-lg border text-slate-700 bg-white bg-opacity-25 backdrop-blur">
         <div className="border-b p-3">
           Previous Close:{' '}
           <span className="font-bold">

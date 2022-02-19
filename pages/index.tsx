@@ -5,7 +5,7 @@ import Trending from '../components/Trending'
 
 const Home = () => {
   return (
-    <div className='flex flex-col pb-12'>
+    <div className='flex flex-col pb-12 bg-gradient-to-r from-slate-50 to-blue-50'>
       <Nav />
       <Trending />
     </div>
