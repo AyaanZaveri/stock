@@ -37,17 +37,22 @@ const Search = ({
     setSearchTerm(e.target.value)
   }
 
-  const getAutoCompletePrices = (ticker: string) => {
+  const getAutoCompletePrices = (symbol: string) => {
     axios
       .get(
-        `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=price`
+        `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbol}&fields=name,price,symbol,marketCap,volume,avgTotalVolume,week52High,week52Low,dayLow,dayHigh,ytdChange`
       )
       .then((res) => {
-        return res.data
+        console.log(res.data)
       })
   }
 
-  console.log(getAutoCompletePrices('AAPL'))
+  // make axios return the response to the function
+  // const getAutoCompletePrices = (symbol: string) => {
+
+  useEffect(() => {
+    console.log(getAutoCompletePrices('AAPL'))
+  }, [])
 
   useEffect(() => {
     autoComplete()
@@ -69,13 +74,15 @@ const Search = ({
       {searchTerm && slicedAutoCompleteData ? (
         <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
           {slicedAutoCompleteData.map((data: any) => (
-            <div className="grid grid-flow-col">
-              <span className="px-3 py-2.5 font-semibold text-slate-700">
-                {data.name}{' '}
-                <span className="ml-1 h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 ring-1 ring-slate-300 transition-all hover:bg-slate-50">
+            <div className="inline-flex items-center pl-3">
+              <div className="py-2 px-2">
+                <span className="cursor-pointer py-2.5 pr-2 font-semibold text-slate-700 hover:underline">
+                  {data.name}{' '}
+                </span>
+                <span className="h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 shadow-sm ring-1 ring-slate-300 transition-all hover:bg-slate-50 hover:no-underline">
                   {data.symbol}
                 </span>
-              </span>
+              </div>
             </div>
           ))}
         </div>
