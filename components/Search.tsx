@@ -49,9 +49,6 @@ const Search = ({
       })
   }
 
-  // make axios return the response to the function
-  // const getAutoCompletePrices = (symbol: string) => {
-
   useEffect(() => {
     console.log(getAutoCompletePrices('AAPL'))
   }, [])
