@@ -5,7 +5,7 @@ import TickerInfo from '../../../components/TickerInfo'
 const TickerIndex = ({ priceData }: { priceData: any }) => {
   console.log(priceData.quoteResponse.result[0].regualrMarketPrice)
 
-  return <TickerInfo priceData={priceData} />
+  return <TickerInfo priceData={priceData.quoteResponse.result[0]} />
 }
 
 export const getServerSideProps = async (context: any) => {
