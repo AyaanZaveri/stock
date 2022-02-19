@@ -14,7 +14,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
   console.log(priceData)
 
   return (
-    <div className='bg-gradient-to-r from-slate-50 to-blue-50'>
+    <div>
       <Nav />
       <div className="flex flex-col items-start">
         <div className="mx-12 my-28 flex flex-col">
@@ -22,13 +22,13 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
             {priceData.longName ? priceData.longName : priceData.symbol}
           </span>
           <div className="inline-flex items-center">
-            <span className="mt-2 text-5xl md:text-7xl font-bold text-slate-700">
+            <span className="mt-2 text-5xl font-bold text-slate-700 md:text-7xl">
               {priceData.regularMarketPrice}
             </span>
             {priceData.regularMarketChange > 0 ? (
-              <FaCaretUp className="h-8 w-8 md:h-10 md:w-10 text-emerald-500" />
+              <FaCaretUp className="h-8 w-8 text-emerald-500 md:h-10 md:w-10" />
             ) : (
-              <FaCaretDown className="h-8 w-8 md:h-10 md:w-10 text-red-500" />
+              <FaCaretDown className="h-8 w-8 text-red-500 md:h-10 md:w-10" />
             )}
             {priceData.regularMarketChange > 0 ? (
               <span className="text-2xl font-semibold text-emerald-500">
@@ -36,7 +36,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
                 {priceData.regularMarketChangePercent.toFixed(2)})
               </span>
             ) : (
-              <span className="text-sm md:text-2xl font-semibold text-red-500">
+              <span className="text-sm font-semibold text-red-500 md:text-2xl">
                 {priceData.regularMarketChange.toFixed(2)} (
                 {priceData.regularMarketChangePercent.toFixed(2)}%)
               </span>

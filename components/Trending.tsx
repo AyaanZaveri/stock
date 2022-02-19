@@ -35,7 +35,7 @@ const Trending = () => {
           {trending
             ? trending.map((data: any) => (
                 <a
-                  className="w-full border-t bg-white bg-opacity-25 backdrop-blur p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:font-bold hover:underline"
+                  className="w-full border-t bg-white bg-opacity-25 backdrop-blur p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:underline"
                   href={`/ticker/${data.symbol}`}
                 >
                   <tbody>
