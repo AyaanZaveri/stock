@@ -75,7 +75,7 @@ const Search = ({
         <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
           {slicedAutoCompleteData.map((data: any) => (
             <div className="inline-flex items-center pl-3 transition-all hover:bg-blue-50">
-              <div className="py-2 px-2">
+              <div className="py-2 px-1">
                 <a href={`/ticker/${data.symbol}`}>
                   <span className="cursor-pointer py-2.5 pr-1.5 font-semibold text-slate-700 hover:underline">
                     {data.name}{' '}
