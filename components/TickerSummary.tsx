@@ -12,7 +12,7 @@ const TickerSummary = (priceData: any) => {
         <div className="border-b p-3">
           Previous Close:{' '}
           <span className="font-bold">
-            {numberWithCommas(priceData.regularMarketPreviousClose)}
+            {priceData ? numberWithCommas(priceData.regularMarketPreviousClose) : "Unknown"}
           </span>
         </div>
         <div className="border-b p-3">
