@@ -26,9 +26,9 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
               {priceData.regularMarketPrice}
             </span>
             {priceData.regularMarketChange > 0 ? (
-              <FaCaretUp className="h-10 w-10 text-emerald-500" />
+              <FaCaretUp className="h-8 w-8 md:h-10 md:w-10 text-emerald-500" />
             ) : (
-              <FaCaretDown className="h-10 w-10 text-red-500" />
+              <FaCaretDown className="h-8 w-8 md:h-10 md:w-10 text-red-500" />
             )}
             {priceData.regularMarketChange > 0 ? (
               <span className="text-2xl font-semibold text-emerald-500">
@@ -36,7 +36,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
                 {priceData.regularMarketChangePercent.toFixed(2)})
               </span>
             ) : (
-              <span className="text-md md:text-2xl font-semibold text-red-500">
+              <span className="text-sm md:text-2xl font-semibold text-red-500">
                 {priceData.regularMarketChange.toFixed(2)} (
                 {priceData.regularMarketChangePercent.toFixed(2)}%)
               </span>
