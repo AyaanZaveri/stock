@@ -22,9 +22,13 @@ interface TickerSummaryProps {
 
 const TickerSummary = (priceData: any) => {
   priceData = priceData.priceData
+
+  function numberWithCommas(x:number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
   return (
     <div>
-      <div className="mt-5 rounded-lg border text-slate-700 bg-white bg-opacity-25 backdrop-blur">
+      <div className="mt-5 rounded-lg border bg-white bg-opacity-25 text-slate-700 backdrop-blur">
         <div className="border-b p-3">
           Previous Close:{' '}
           <span className="font-bold">

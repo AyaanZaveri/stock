@@ -13,6 +13,9 @@ interface TickerInfoProps {
 const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
   console.log(priceData)
 
+  function numberWithCommas(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
   return (
     <div>
       <Nav />
