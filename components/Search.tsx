@@ -10,19 +10,10 @@ interface AutoComplete {
   }
 }
 
-interface SearchProps {
-  searchTerm: string
-  setSearchTerm: (searchTerm: string) => void
-  autoCompleteData: AutoComplete | undefined
-  setAutoCompleteData?: (autoCompleteData: any) => void
-}
+const Search = () => {
+  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [autoCompleteData, setAutoCompleteData] = useState<AutoComplete>()
 
-const Search = ({
-  searchTerm,
-  setSearchTerm,
-  autoCompleteData,
-  setAutoCompleteData,
-}: SearchProps) => {
   const autoComplete = () => {
     axios
       .get(

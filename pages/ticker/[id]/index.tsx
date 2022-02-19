@@ -1,10 +1,11 @@
 import React from 'react'
 import axios from 'axios'
+import TickerInfo from '../../../components/TickerInfo'
 
 const TickerIndex = ({ priceData }: { priceData: any }) => {
   console.log(priceData.quoteResponse.result[0].regualrMarketPrice)
 
-  return <div>{JSON.stringify(priceData)}</div>
+  return <TickerInfo priceData={priceData} />
 }
 
 export const getServerSideProps = async (context: any) => {
