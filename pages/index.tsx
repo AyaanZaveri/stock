@@ -5,7 +5,7 @@ import Trending from '../components/Trending'
 
 const Home = () => {
   return (
-    <div className='flex flex-col pb-12 bg-slate-50 hover:bg-white transition-all'>
+    <div className='flex flex-col pb-12'>
       <Nav />
       <Trending />
     </div>
