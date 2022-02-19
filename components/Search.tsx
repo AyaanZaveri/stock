@@ -45,7 +45,7 @@ const Search = () => {
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
+        className="w-full rounded-md border border-slate-200 bg-white bg-opacity-50 backdrop-blur-sm px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
       />
       {searchTerm && slicedAutoCompleteData ? (
         <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm backdrop-blur-sm">

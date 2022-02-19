@@ -11,6 +11,7 @@ interface TickerInfoProps {
 }
 
 const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
+
   console.log(priceData)
 
   return (

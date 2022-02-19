@@ -1,6 +1,11 @@
 import React from 'react'
 
-interface TickerSummary {
+interface TickerSummaryProps {
+  longName: string
+  symbol: string
+  regularMarketPrice: number
+  regularMarketChange: number
+  regularMarketChangePercent: number
   regularMarketPreviousClose: number
   regularMarketOpen: number
   bid: number
@@ -15,7 +20,8 @@ interface TickerSummary {
   marketState: string
 }
 
-const TickerSummary = ({ priceData }: { priceData: TickerSummary }) => {
+const TickerSummary = (priceData: any) => {
+  priceData = priceData.priceData
   return (
     <div>
       <div className="border-b p-3">
