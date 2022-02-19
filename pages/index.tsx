@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Search from '../components/Search'
+import axios from 'axios'
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')

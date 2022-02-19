@@ -39,20 +39,6 @@ const Search = ({
     setSearchTerm(e.target.value)
   }
 
-  const getAutoCompletePrices = (symbol: string) => {
-    axios
-      .get(
-        `https://cors-anywhere-production-f183.up.railway.app/https://query2.finance.yahoo.com/v7/finance/quote?symbols=${symbol}&fields=name,price,symbol,marketCap,volume,avgTotalVolume,week52High,week52Low,dayLow,dayHigh,ytdChange`
-      )
-      .then((res) => {
-        console.log(res.data)
-      })
-  }
-
-  useEffect(() => {
-    console.log(getAutoCompletePrices('AAPL'))
-  }, [])
-
   useEffect(() => {
     autoComplete()
   }, [searchTerm])
