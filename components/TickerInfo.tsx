@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from './Search'
-import { HiChevronDown } from 'react-icons/hi'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi'
 interface TickerInfoProps {
   longName: string
   regularMarketPrice: number
