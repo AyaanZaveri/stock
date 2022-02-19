@@ -27,11 +27,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
           <span className="mt-2 text-6xl font-bold text-slate-700">
             {priceData.regularMarketPrice}
           </span>
-          {priceData.regularMarketChange > 0 ? (
-            <FaCaretUp />
-          ) : (
-            <FaCaretDown />
-          )}
+          {priceData.regularMarketChange > 0 ? <FaCaretUp /> : <FaCaretDown />}
         </div>
       </div>
     </div>
