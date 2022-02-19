@@ -16,37 +16,36 @@ const Trending = () => {
       .then((res) => setTrending(res.data.finance.result[0].quotes))
   }
 
+  const priceData = async (ticker: string) => {
+    const response = await axios.get(`https://query2.finance.yahoo.com/v6/finance/quote?region=US&lang=en&symbols=${ticker}`)
+    return response.data
+  }
+
   useEffect(() => {
     trendingData()
+  }, [])
+
+  useEffect(() => {
+    (async () => {
+      const response = await priceData('AAPL')
+      console.log(response)
+    })();
   }, [])
 
   console.log(trending)
 
   return (
-    <div className="ml-12 mt-20">
-      <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
+    <div className="mt-20">
       <div className="mt-5">
-        <table className="flex w-8/12 table-auto flex-col rounded-lg border text-left shadow-sm">
-          <thead className="cursor-default bg-white rounded-t-lg">
-            <tr>
-              <th className="group p-3 text-slate-700">Symbol</th>
-            </tr>
-          </thead>
+        <div className="flex flex-row overflow-auto whitespace-nowrap">
           {trending
             ? trending.map((data: any) => (
-                <a
-                  className="w-full border-t bg-slate-50 p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:font-bold hover:underline"
-                  href={`/ticker/${data.symbol}`}
-                >
-                  <tbody>
-                    <tr>
-                      <td>{data.symbol}</td>
-                    </tr>
-                  </tbody>
-                </a>
+                <div className="border-l p-5 text-slate-700 transition-all hover:cursor-pointer hover:bg-slate-50 hover:underline">
+                  {data.symbol}
+                </div>
               ))
             : null}
-        </table>
+        </div>
       </div>
     </div>
   )
