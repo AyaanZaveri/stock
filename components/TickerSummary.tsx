@@ -1,29 +1,9 @@
 import React from 'react'
 
-interface TickerSummaryProps {
-  longName: string
-  symbol: string
-  regularMarketPrice: number
-  regularMarketChange: number
-  regularMarketChangePercent: number
-  regularMarketPreviousClose: number
-  regularMarketOpen: number
-  bid: number
-  ask: number
-  regularMarketDayRange: string
-  fiftyTwoWeekRange: string
-  regularMarketVolume: number
-  marketCap: number
-  regularMarketTime: string
-  currency: string
-  epsTrailingTwelveMonths: string
-  marketState: string
-}
-
 const TickerSummary = (priceData: any) => {
   priceData = priceData.priceData
 
-  function numberWithCommas(x:number) {
+  function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
   return (
@@ -32,42 +12,50 @@ const TickerSummary = (priceData: any) => {
         <div className="border-b p-3">
           Previous Close:{' '}
           <span className="font-bold">
-            {priceData.regularMarketPreviousClose}
+            {numberWithCommas(priceData.regularMarketPreviousClose)}
           </span>
         </div>
         <div className="border-b p-3">
-          Open: <span className="font-bold">{priceData.regularMarketOpen}</span>
+          Open:{' '}
+          <span className="font-bold">
+            {priceData.regularMarketOpen ? numberWithCommas(priceData.regularMarketOpen) : "Unknown"}
+          </span>
         </div>
         <div className="border-b p-3">
-          Bid: <span className="font-bold">{priceData.bid}</span>
+          Bid:{' '}
+          <span className="font-bold">
+            {priceData.bid ? numberWithCommas(priceData.bid) : 'Unknown'}
+          </span>
         </div>
         <div className="border-b p-3">
-          Ask: <span className="font-bold">{priceData.ask}</span>
+          Ask:{' '}
+          <span className="font-bold">{priceData.ask ? numberWithCommas(priceData.ask) : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
           Day Range:{' '}
-          <span className="font-bold">{priceData.regularMarketDayRange}</span>
+          <span className="font-bold">{priceData.regularMarketDayRange? priceData.regularMarketDayRange : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
           52 Week Range:{' '}
-          <span className="font-bold">{priceData.fiftyTwoWeekRange}</span>
+          <span className="font-bold">{priceData.fiftyTwoWeekRange ? priceData.fiftyTwoWeekRange : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
           Volume:{' '}
-          <span className="font-bold">{priceData.regularMarketVolume}</span>
+          <span className="font-bold">{priceData.regularMarketVolume ? priceData.regularMarketVolume : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
-          Market Cap: <span className="font-bold">{priceData.marketCap}</span>
+          Market Cap: <span className="font-bold">{priceData.marketCap ? priceData.marketCap : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
-          Time: <span className="font-bold">{priceData.regularMarketTime}</span>
+          Market Time:{' '}
+          <span className="font-bold">{priceData.regularMarketTime ? priceData.regularMarketTime : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
-          Currency: <span className="font-bold">{priceData.currency}</span>
+          Currency: <span className="font-bold">{priceData.currency?priceData.currency : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
           EPS (TTM):{' '}
-          <span className="font-bold">{priceData.epsTrailingTwelveMonths}</span>
+          <span className="font-bold">{priceData.epsTrailingTwelveMonths ?priceData.epsTrailingTwelveMonths : "Unknown"}</span>
         </div>
         <div className="border-b p-3">
           Market State:{' '}
