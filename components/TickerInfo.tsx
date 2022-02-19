@@ -10,12 +10,6 @@ interface TickerInfoProps {
 const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
   console.log(priceData)
 
-  const calcChange = () => {
-    return priceData.regularMarketChange > 0
-      ? 'text-emerald-500'
-      : 'text-rose-500'
-  }
-
   return (
     <div>
       <Search />
@@ -27,7 +21,11 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
           <span className="mt-2 text-6xl font-bold text-slate-700">
             {priceData.regularMarketPrice}
           </span>
-          {priceData.regularMarketChange > 0 ? <FaCaretUp /> : <FaCaretDown />}
+          {priceData.regularMarketChange > 0 ? (
+            <FaCaretUp className="h-8 w-8 text-emerald-500" />
+          ) : (
+            <FaCaretDown className="h-8 w-8 text-red-500" />
+          )}
         </div>
       </div>
     </div>
