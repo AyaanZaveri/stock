@@ -14,18 +14,20 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
     <div>
       <Search />
       <div className="flex flex-col items-start">
-        <div className="mx-12 my-24 flex flex-col md:text-left">
+        <div className="mx-12 my-24 flex flex-col">
           <span className="font-mono text-xl font-normal text-slate-700">
             {priceData.longName}
           </span>
-          <span className="mt-2 text-6xl font-bold text-slate-700">
-            {priceData.regularMarketPrice}
-          </span>
-          {priceData.regularMarketChange > 0 ? (
-            <FaCaretUp className="h-8 w-8 text-emerald-500" />
-          ) : (
-            <FaCaretDown className="h-8 w-8 text-red-500" />
-          )}
+          <div className="inline-flex items-center">
+            <span className="mt-2 text-7xl font-bold text-slate-700">
+              {priceData.regularMarketPrice}
+            </span>
+            {priceData.regularMarketChange > 0 ? (
+              <FaCaretUp className="h-10 w-10 text-emerald-500" />
+            ) : (
+              <FaCaretDown className="h-10 w-10 text-red-500" />
+            )}
+          </div>
         </div>
       </div>
     </div>
