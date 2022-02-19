@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+import TickerSummary from './TickerSummary'
 interface TickerInfoProps {
   longName: string
   symbol: string
@@ -42,6 +43,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
             )}
           </div>
         </div>
+        <TickerSummary priceData={priceData} />
       </div>
     </div>
   )
