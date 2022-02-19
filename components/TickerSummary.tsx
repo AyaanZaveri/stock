@@ -8,7 +8,7 @@ const TickerSummary = (priceData: any) => {
   }
   return (
     <div className='-z-30'>
-      <div className="mt-5 rounded-lg border bg-white bg-opacity-25 text-slate-700 backdrop-blur">
+      <div className="mt-5 rounded-lg border bg-white text-slate-700">
         <div className="border-b p-3">
           Previous Close:{' '}
           <span className="font-bold">

@@ -39,18 +39,18 @@ const Search = () => {
     : []
 
   return (
-    <div className='w-full'>
+    <div className='w-full z-30'>
       <input
         placeholder="Search..."
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        className="w-full rounded-md border border-slate-200 bg-white bg-opacity-50 backdrop-blur-sm px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
+        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
       />
       {searchTerm && slicedAutoCompleteData ? (
-        <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm backdrop-blur-sm">
+        <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
           {slicedAutoCompleteData.map((data: any) => (
-            <div className="inline-flex items-center bg-white bg-opacity-50 pl-3 transition-all hover:bg-blue-50 hover:bg-opacity-50">
+            <div className="inline-flex items-center bg-white pl-3 transition-all hover:bg-blue-50">
               <div className="py-2 px-1">
                 <a href={`/ticker/${data.symbol}`}>
                   <span className="cursor-pointer py-2.5 pr-1.5 font-semibold text-slate-700 hover:underline">
