@@ -29,12 +29,12 @@ const Trending = () => {
         <table className="flex table-auto flex-col text-left border w-8/12 rounded-lg">
           <thead>
             <tr>
-              <th className="text-slate-700 text-lg p-3">Symbol</th>
+              <th className="text-slate-700 text-lg p-3 group">Symbol</th>
             </tr>
           </thead>
           {trending
             ? trending.map((data: any) => (
-                <tbody className="w-full border-t bg-slate-50 p-3 text-slate-700">
+                <tbody className="w-full border-t bg-slate-50 hover:bg-blue-50 hover:font-bold p-3 text-slate-700 transition-all hover:cursor-pointer">
                   <tr>
                     <td>{data.symbol}</td>
                   </tr>
