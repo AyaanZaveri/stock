@@ -37,7 +37,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
             ) : (
               <span className="text-2xl font-semibold text-red-500">
                 {priceData.regularMarketChange.toFixed(2)} (
-                {priceData.regularMarketChangePercent.toFixed(2)})
+                {priceData.regularMarketChangePercent.toFixed(2)}%)
               </span>
             )}
           </div>
