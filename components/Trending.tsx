@@ -16,34 +16,37 @@ const Trending = () => {
       .then((res) => setTrending(res.data.finance.result[0].quotes))
   }
 
-  const priceData = async (ticker: string) => {
-    axios.get(
-      `https://query2.finance.yahoo.com/v6/finance/quote?region=US&lang=en&symbols=${ticker}`
-    ).then(response => {
-      return response.data
-    })
-  }
-
   useEffect(() => {
     trendingData()
   }, [])
 
-  priceData('AAPL').then((res) => console.log(res))
-
   console.log(trending)
 
   return (
-    <div className="mt-20 flex flex-col items-center justify-center w-screen">
+    <div className="ml-12 mt-20">
+      <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
       <div className="mt-5">
-        <div className="flex flex-row overflow-auto whitespace-nowrap border w-9/12">
+        <table className="flex w-8/12 table-auto flex-col rounded-lg border text-left shadow-sm">
+          <thead className="cursor-default bg-white rounded-t-lg">
+            <tr>
+              <th className="group p-3 text-slate-700">Symbol</th>
+            </tr>
+          </thead>
           {trending
             ? trending.map((data: any) => (
-                <div className="border-l p-5 text-slate-700 transition-all hover:cursor-pointer hover:bg-slate-50 hover:underline">
-                  {data.symbol}
-                </div>
+                <a
+                  className="w-full border-t bg-slate-50 p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:font-bold hover:underline"
+                  href={`/ticker/${data.symbol}`}
+                >
+                  <tbody>
+                    <tr>
+                      <td>{data.symbol}</td>
+                    </tr>
+                  </tbody>
+                </a>
               ))
             : null}
-        </div>
+        </table>
       </div>
     </div>
   )
