@@ -39,32 +39,34 @@ const Search = () => {
     : []
 
   return (
-    <div className="mt-3 w-9/12 md:w-3/12">
-      <input
-        placeholder="Search..."
-        type="text"
-        value={searchTerm}
-        onChange={handleChange}
-        className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
-      />
-      {searchTerm && slicedAutoCompleteData ? (
-        <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
-          {slicedAutoCompleteData.map((data: any) => (
-            <div className="inline-flex items-center pl-3 transition-all hover:bg-blue-50">
-              <div className="py-2 px-1">
-                <a href={`/ticker/${data.symbol}`}>
-                  <span className="cursor-pointer py-2.5 pr-1.5 font-semibold text-slate-700 hover:underline">
-                    {data.name}{' '}
+    <div className="flex justify-center">
+      <div className="fixed mt-3 w-9/12 md:w-3/12">
+        <input
+          placeholder="Search..."
+          type="text"
+          value={searchTerm}
+          onChange={handleChange}
+          className="group w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
+        />
+        {searchTerm && slicedAutoCompleteData ? (
+          <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm group-hover:hidden">
+            {slicedAutoCompleteData.map((data: any) => (
+              <div className="inline-flex items-center bg-white pl-3 transition-all hover:bg-blue-50">
+                <div className="py-2 px-1">
+                  <a href={`/ticker/${data.symbol}`}>
+                    <span className="cursor-pointer py-2.5 pr-1.5 font-semibold text-slate-700 hover:underline">
+                      {data.name}{' '}
+                    </span>
+                  </a>
+                  <span className="h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 shadow-sm ring-1 ring-slate-300 transition-all hover:bg-slate-50 hover:no-underline">
+                    {data.symbol}
                   </span>
-                </a>
-                <span className="h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 shadow-sm ring-1 ring-slate-300 transition-all hover:bg-slate-50 hover:no-underline">
-                  {data.symbol}
-                </span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   )
 }

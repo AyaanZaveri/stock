@@ -6,10 +6,8 @@ import Trending from '../components/Trending'
 const Home = () => {
   return (
     <div>
-      <div className="grid place-items-center">
         <Search />
         <Trending />
-      </div>
     </div>
   )
 }
