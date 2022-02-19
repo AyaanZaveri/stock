@@ -40,7 +40,7 @@ const Search = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="fixed mt-3 w-9/12 md:w-5/12 sm:4/12">
+      <div className="fixed mt-3 w-9/12 md:w-4/12">
         <input
           placeholder="Search..."
           type="text"

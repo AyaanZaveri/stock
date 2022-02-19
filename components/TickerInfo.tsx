@@ -5,6 +5,7 @@ interface TickerInfoProps {
   longName: string
   regularMarketPrice: number
   regularMarketChange: number
+  regularMarketChangePercent: number
 }
 
 const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
@@ -27,6 +28,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
             ) : (
               <FaCaretDown className="h-10 w-10 text-red-500" />
             )}
+            {priceData.regularMarketChange > 0 ? <span className='text-2xl font-semibold text-emerald-500'>{priceData.regularMarketChange.toFixed(2)} ({priceData.regularMarketChangePercent.toFixed(2)})</span> : <span className='text-2xl font-semibold text-red-500'>{priceData.regularMarketChange.toFixed(2)} ({priceData.regularMarketChangePercent.toFixed(2)})</span>}
           </div>
         </div>
       </div>
