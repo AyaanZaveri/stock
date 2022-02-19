@@ -17,7 +17,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
     <div>
       <Nav />
       <div className="flex flex-col items-start">
-        <div className="mx-12 my-24 flex flex-col">
+        <div className="mx-12 my-28 flex flex-col">
           <span className="font-mono text-xl font-normal text-slate-700">
             {priceData.longName ? priceData.longName : priceData.symbol}
           </span>
