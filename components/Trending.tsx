@@ -23,11 +23,11 @@ const Trending = () => {
   console.log(trending)
 
   return (
-    <div className="ml-12 mt-20">
-      <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
-      <div className="mt-5">
-        <table className="flex w-8/12 table-auto flex-col rounded-lg border text-left shadow-sm">
-          <thead className="cursor-default bg-white rounded-t-lg">
+    <div className="mt-20 flex w-full flex-col md:ml-12">
+      <h1 className="text-4xl font-bold text-slate-700 text-center md:text-left">Trending</h1>
+      <div className="mt-5 flex justify-center md:justify-start">
+        <table className="flex table-auto flex-col rounded-lg border text-left shadow-sm w-11/12 md:w-8/12">
+          <thead className="cursor-default rounded-t-lg bg-white">
             <tr>
               <th className="group p-3 text-slate-700">Symbol</th>
             </tr>
@@ -35,7 +35,7 @@ const Trending = () => {
           {trending
             ? trending.map((data: any) => (
                 <a
-                  className="w-full border-t bg-slate-100 bg-opacity-50 backdrop-blur p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:underline"
+                  className="w-full border-t bg-slate-100 bg-opacity-50 p-3 text-slate-700 backdrop-blur transition-all hover:cursor-pointer hover:bg-blue-50 hover:underline"
                   href={`/ticker/${data.symbol}`}
                 >
                   <tbody>
