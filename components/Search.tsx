@@ -26,7 +26,7 @@ const Search = ({
   const autoComplete = () => {
     axios
       .get(
-        `https://cors-anywhere-production-f183.up.railway.app/https://query1.finance.yahoo.com/v7/finance/autocomplete?region=US&lang=en&query=${searchTerm}`
+        `https://cors-anywhere-production-f183.up.railway.app/https://query2.finance.yahoo.com/v7/finance/autocomplete?region=US&lang=en&query=${searchTerm}`
       )
       .then((res) => {
         setAutoCompleteData ? setAutoCompleteData(res.data) : null
