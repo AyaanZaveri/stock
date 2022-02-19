@@ -13,7 +13,6 @@ interface AutoComplete {
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [autoCompleteData, setAutoCompleteData] = useState<AutoComplete>()
-  const [showAutoComplete, setShowAutoComplete] = useState<boolean>(false)
 
   const autoComplete = () => {
     axios
@@ -47,11 +46,9 @@ const Search = () => {
           type="text"
           value={searchTerm}
           onChange={handleChange}
-          onFocus={() => setShowAutoComplete(true)}
-          onBlur={() => setShowAutoComplete(false)}
           className="w-full rounded-md border border-slate-200 bg-white px-4 py-2 text-slate-600 shadow-sm transition hover:bg-slate-50 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-100"
         />
-        {searchTerm && slicedAutoCompleteData && showAutoComplete ? (
+        {searchTerm && slicedAutoCompleteData ? (
           <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm backdrop-blur-sm">
             {slicedAutoCompleteData.map((data: any) => (
               <div className="inline-flex items-center bg-white bg-opacity-50 pl-3 transition-all hover:bg-blue-50 hover:bg-opacity-50">
