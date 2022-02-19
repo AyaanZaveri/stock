@@ -27,7 +27,7 @@ const Trending = () => {
       <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
       <div className="mt-5">
         <table className="flex w-8/12 table-auto flex-col rounded-lg border text-left shadow-sm">
-          <thead className="cursor-default">
+          <thead className="cursor-default bg-white rounded-t-lg">
             <tr>
               <th className="group p-3 text-slate-700">Symbol</th>
             </tr>
