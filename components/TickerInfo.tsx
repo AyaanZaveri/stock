@@ -22,7 +22,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
             {priceData.longName ? priceData.longName : priceData.symbol}
           </span>
           <div className="inline-flex items-center">
-            <span className="mt-2 text-7xl font-bold text-slate-700">
+            <span className="mt-2 text-5xl md:text-7xl font-bold text-slate-700">
               {priceData.regularMarketPrice}
             </span>
             {priceData.regularMarketChange > 0 ? (
@@ -36,7 +36,7 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
                 {priceData.regularMarketChangePercent.toFixed(2)})
               </span>
             ) : (
-              <span className="text-2xl font-semibold text-red-500">
+              <span className="text-md md:text-2xl font-semibold text-red-500">
                 {priceData.regularMarketChange.toFixed(2)} (
                 {priceData.regularMarketChangePercent.toFixed(2)}%)
               </span>
