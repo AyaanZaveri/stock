@@ -1,6 +1,6 @@
 import React from 'react'
 import Search from './Search'
-import { HiChevronDown, HiChevronUp } from 'react-icons/hi'
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 interface TickerInfoProps {
   longName: string
   regularMarketPrice: number
@@ -27,6 +27,11 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
           <span className="mt-2 text-6xl font-bold text-slate-700">
             {priceData.regularMarketPrice}
           </span>
+          {priceData.regularMarketChange > 0 ? (
+            <FaCaretUp />
+          ) : (
+            <FaCaretDown />
+          )}
         </div>
       </div>
     </div>
