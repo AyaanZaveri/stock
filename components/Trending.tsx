@@ -25,23 +25,23 @@ const Trending = () => {
   return (
     <div className="ml-12 mt-20">
       <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
-      <div className='mt-3'>
-        {trending
-          ? trending.map((data: any) => (
-              <table className="table-auto text-left">
-                <thead>
-                  <tr>
-                    <th>Symbol</th>
-                  </tr>
-                </thead>
-                <tbody>
+      <div className="mt-5">
+        <table className="flex table-auto flex-col text-left border w-8/12 rounded-lg">
+          <thead>
+            <tr>
+              <th className="text-slate-700 text-lg p-3">Symbol</th>
+            </tr>
+          </thead>
+          {trending
+            ? trending.map((data: any) => (
+                <tbody className="w-full border-t bg-slate-50 p-3 text-slate-700">
                   <tr>
                     <td>{data.symbol}</td>
                   </tr>
                 </tbody>
-              </table>
-            ))
-          : null}
+              ))
+            : null}
+        </table>
       </div>
     </div>
   )
