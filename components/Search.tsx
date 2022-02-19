@@ -74,11 +74,13 @@ const Search = ({
       {searchTerm && slicedAutoCompleteData ? (
         <div className="mt-2 grid grid-flow-row overflow-hidden rounded-lg border shadow-sm">
           {slicedAutoCompleteData.map((data: any) => (
-            <div className="inline-flex items-center pl-3">
+            <div className="inline-flex items-center pl-3 transition-all hover:bg-blue-50">
               <div className="py-2 px-2">
-                <span className="cursor-pointer py-2.5 pr-2 font-semibold text-slate-700 hover:underline">
-                  {data.name}{' '}
-                </span>
+                <a href={`/ticker/${data.symbol}`}>
+                  <span className="cursor-pointer py-2.5 pr-1.5 font-semibold text-slate-700 hover:underline">
+                    {data.name}{' '}
+                  </span>
+                </a>
                 <span className="h-min cursor-default rounded-sm px-1.5 text-sm font-normal text-blue-500 shadow-sm ring-1 ring-slate-300 transition-all hover:bg-slate-50 hover:no-underline">
                   {data.symbol}
                 </span>
