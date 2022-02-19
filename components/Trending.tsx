@@ -26,19 +26,24 @@ const Trending = () => {
     <div className="ml-12 mt-20">
       <h1 className="text-4xl font-bold text-slate-700">Trending</h1>
       <div className="mt-5">
-        <table className="flex table-auto flex-col text-left border w-8/12 rounded-lg">
-          <thead className='cursor-default'>
+        <table className="flex w-8/12 table-auto flex-col rounded-lg border text-left shadow-sm">
+          <thead className="cursor-default">
             <tr>
-              <th className="text-slate-700 text-lg p-3 group">Symbol</th>
+              <th className="group p-3 text-slate-700">Symbol</th>
             </tr>
           </thead>
           {trending
             ? trending.map((data: any) => (
-                <tbody className="w-full border-t bg-slate-50 hover:bg-blue-50 hover:font-bold p-3 text-slate-700 transition-all hover:cursor-pointer">
-                  <tr>
-                    <td>{data.symbol}</td>
-                  </tr>
-                </tbody>
+                <a
+                  className="w-full border-t bg-slate-50 p-3 text-slate-700 transition-all hover:cursor-pointer hover:bg-blue-50 hover:font-bold hover:underline"
+                  href={`/ticker/${data.symbol}`}
+                >
+                  <tbody>
+                    <tr>
+                      <td>{data.symbol}</td>
+                    </tr>
+                  </tbody>
+                </a>
               ))
             : null}
         </table>
