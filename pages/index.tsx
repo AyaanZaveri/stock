@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Search from '../components/Search'
+import Nav from '../components/Nav'
 import axios from 'axios'
 import Trending from '../components/Trending'
 
 const Home = () => {
   return (
     <div>
-        <Search />
+        <Nav />
         <Trending />
     </div>
   )
