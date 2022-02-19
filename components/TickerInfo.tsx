@@ -45,7 +45,9 @@ const TickerInfo = ({ priceData }: { priceData: TickerInfoProps }) => {
               </span>
             )}
           </div>
-          <TickerSummary priceData={priceData} />
+          <div className='w-80 md:w-96'>
+            <TickerSummary priceData={priceData} />
+          </div>
         </div>
       </div>
     </div>
